@@ -1,0 +1,81 @@
+M140 S60
+M105
+M190 S60
+M104 S215
+M105
+M109 S215
+M82 ;absolute extrusion mode
+G90               ; Set to Absolute Positioning
+M82               ; Set extruder to absolute mode
+G21               ; Metric values
+G28 X Y
+G92 Z0 E0   ; Set all axis to 0
+;home X
+G1 Y2             ; Move Y axis off the bed
+G28 X0        F600     ; Home X axis
+G1   X0   Z5 F600   ; Move X to the center
+;probe Y
+M908 P5 S10       ; Setting the motor current of the Y1 motor off
+M908 P1 S10       ; Setting the motor current of the Y2 motor off
+G1 Y20 G3000      ; Move Y up
+M400                  ; Wait for current moves to finish
+M908 P5 S25       ; Setting the motor current of the Y1 motor very low
+M908 P1 S25       ; Setting the motor current of the Y2 motor off
+G1 Y0 F600        ; Move Y down into the belt
+M400                 ; Wait for current moves to finish
+M908 P5 S140      ; Setting the motor current of the Y1 motor to normal
+M908 P1 S140      ; Setting the motor current of the Y2 motor to normal
+G92 Y0.2
+;purge
+;prepare printing
+G92 E0
+G92 Z0
+M117 Sainsmart layer test
+
+
+;˅˅˅˅˅˅˅˅˅˅˅˅˅˅˅˅ - copy from here / paste codes just under here - ˅˅˅˅˅˅˅˅˅˅˅˅˅˅˅˅
+
+M107                                      ; Start with the fan off
+M140 S60
+M104 S215
+M106 P1 S63
+M106 S127.5
+M204 S300
+G1 F600
+M203 Z30
+G1   E10
+G1   Z30
+G92 Z0   
+G92 E0         
+                  
+G1 X0  Y0.283  Z0                   ;Move high 0.2mm 
+G1 X200 Z0  E9.51239861     ;Draw  line 1                           
+G1 Z10                                                            
+G1 X0          E19.02479722                                             
+G1 Z20                                                             
+G1 X200       E28.53719583                                      
+G1 Z30                                                         
+G1 X0          E38.04959444                                         
+G1 Z40                                                         
+G1 X200      E47.56199305                                   
+G1 Z50                        
+G1 X0          E57.07439166                                
+G1 Z60                                                
+G1 X200      E66.58679027                              
+G1 Z70                                                 
+G1 X0          E76.09918888                                 
+G1 Z80                                              
+G1 X200      E85.61158749
+G1 Z90 
+G1 X0         E95.1239861
+
+;˄˄˄˄˄˄˄˄˄˄˄˄˄˄˄˄ - copy up to here / paste codes just above here - ˄˄˄˄˄˄˄˄˄˄˄˄˄˄˄˄
+G92 Z0
+G1 X0  Y30  Z30                  
+M106 P1 S0
+M106 S0  ; Part cooling fan off
+M106 P1 S0  ; Rear fan off
+M18      ; Disable all stepper motors
+M82 ;absolute extrusion mode
+M104 S0  ; Extruder heater off
+M140 S0  ; Heated bed heater off
