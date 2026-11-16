@@ -24,4 +24,4 @@ Look at these:
 
 - Now you need the slicer: [Software Downloads - Creality](https://www.creality.com/pages/download-software)
 
-- For an example print object to test you can use [RepRap's Infinite-Z-Beam - GitHub](https://github.com/RepRapLtd/Infinite-Z-Beam/blob/main/Mechanics/STLs/beam.stl)
+- For an example print object to test you can use [RepRap's Infinite-Z-Beam - GitHub](https://github.com/RepRapLtd/Infinite-Z-Beam/blob/main/Mechanics/STLs/beam.stl), or the smaller version of it in [test-prints/z-beam-small](test-prints/z-beam-small/).
